@@ -1,0 +1,33 @@
+{
+	"$schema": "./node_modules/wrangler/config-schema.json",
+	"name": "codebase",
+	"compatibility_date": "2026-10-24",
+	"compatibility_flags": [
+		"nodejs_als"
+	],
+	"main": ".svelte-kit/cloudflare/_worker.js",
+	"d1_databases": [
+		{
+			"binding": "unimob_db",
+			"database_name": "unimob-db",
+			"database_id": "b8f9867c-cea4-4b54-a92d-6dc00c72aa2d",
+			"migrations_dir": "drizzle"
+		}
+	],
+	"r2_buckets": [
+		{
+			"binding": "unimob_files",
+			"bucket_name": "unimob-pdfs"
+		},
+		{
+			"bucket_name": "unimob-pdfs",
+			"binding": "unimob_pdfs"
+		}
+	],
+	"assets": {
+		"binding": "ASSETS",
+		"directory": ".svelte-kit/cloudflare"
+	},
+	"workers_dev": true,
+	"preview_urls": true
+}

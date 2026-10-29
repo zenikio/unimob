@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Sorts+Mill+Goudy:ital@0;1&display=swap');
+@import 'tailwindcss';
+@import 'tw-animate-css';
+@plugin 'daisyui' {
+	themes: light --default, dark;
+}
+:root {
+	--swatch-gray-000: #ffffff;
+	--swatch-gray-050: #faf9f5;
+	--swatch-gray-100: #f5f4ed;
+	--swatch-gray-150: #f0eee6;
+	--swatch-gray-200: #e8e6dc;
+	--swatch-gray-250: #dedcd1;
+	--swatch-gray-300: #d1cfc5;
+	--swatch-gray-350: #c2c0b6;
+	--swatch-gray-400: #b0aea5;
+	--swatch-gray-450: #9c9a92;
+	--swatch-gray-500: #87867f;
+	--swatch-gray-550: #73726c;
+	--swatch-gray-600: #5e5d59;
+	--swatch-gray-650: #4d4c48;
+	--swatch-gray-700: #3d3d3a;
+	--swatch-gray-750: #30302e;
+	--swatch-gray-800: #262624;
+	--swatch-gray-850: #1f1e1d;
+	--swatch-gray-900: #1a1918;
+	--swatch-gray-950: #141413;
+	--swatch-oat: #e3dacc;
+	--swatch-olive: #788c5d;
+	--swatch-cactus: #bcd1ca;
+	--swatch-sky: #6a9bcc;
+	--swatch-heather: #cbcadb;
+	--swatch-fig: #c46686;
+	--swatch-coral: #ebcece;
+	--swatch-clay: #d97757;
+	--swatch-clay-interactive: #e16441;
+	--error-text: #b53333;
+}
+@plugin 'daisyui/theme' {
+	name: 'light';
+	default: true;
+	color-scheme: light;
+	--color-base-100: var(--swatch-gray-000);
+	--color-base-200: var(--swatch-gray-100);
+	--color-base-300: var(--swatch-gray-200);
+	--color-base-content: var(--swatch-gray-950);
+	--color-primary: var(--swatch-clay-interactive);
+	--color-primary-content: var(--swatch-gray-050);
+	--color-secondary: var(--swatch-sky);
+	--color-secondary-content: var(--swatch-gray-050);
+	--color-accent: var(--swatch-olive);
+	--color-accent-content: var(--swatch-gray-050);
+	--color-neutral: var(--swatch-gray-850);
+	--color-neutral-content: var(--swatch-gray-050);
+	--radius-selector: 0.5rem;
+	--radius-field: 0.5rem;
+	--radius-box: 0.75rem;
+	--size-selector: 0.25rem;
+	--size-field: 0.25rem;
+	--border: 0.0625rem;
+	--depth: 0;
+	--noise: 0;
+	--color-btn-outline-text: var(--swatch-gray-600);
+	--color-btn-outline-border: var(--swatch-gray-300);
+	--color-btn-outline-hover-text: var(--swatch-gray-950);
+}
+@plugin 'daisyui/theme' {
+	name: 'dark';
+	color-scheme: dark;
+	--color-base-100: var(--swatch-gray-950);
+	--color-base-200: var(--swatch-gray-850);
+	--color-base-300: var(--swatch-gray-750);
+	--color-base-content: var(--swatch-gray-050);
+	--color-primary: var(--swatch-clay-interactive);
+	--color-primary-content: var(--swatch-gray-950);
+	--color-secondary: var(--swatch-sky);
+	--color-secondary-content: var(--swatch-gray-950);
+	--color-accent: var(--swatch-olive);
+	--color-accent-content: var(--swatch-gray-950);
+	--color-neutral: var(--swatch-gray-200);
+	--color-neutral-content: var(--swatch-gray-900);
+	--radius-selector: 0.5rem;
+	--radius-field: 0.5rem;
+	--radius-box: 0.75rem;
+	--size-selector: 0.25rem;
+	--size-field: 0.25rem;
+	--border: 0.0625rem;
+	--depth: 0;
+	--noise: 0;
+	--color-btn-outline-text: var(--swatch-gray-400);
+	--color-btn-outline-border: var(--swatch-gray-700);
+	--color-btn-outline-hover-text: var(--swatch-gray-050);
+}
+@theme inline {
+	--font-sans: 'Manrope', sans-serif;
+	--font-manrope: 'Manrope', sans-serif;
+	--font-serif: 'Sorts Mill Goudy', serif;
+	--font-goudy: 'Sorts Mill Goudy', serif;
+}
+@layer base {
+	html {
+		@apply font-sans;
+	}
+}
+@utility btn {
+	@apply rounded-xl;
+}
+@utility input {
+	@apply transition-shadow duration-300 ease-in-out;
+	&:focus,
+	&:focus-within {
+		@apply border-primary ring-2 ring-primary/40 outline-none;
+	}
+}
+@utility focus-ring {
+	@apply transition-shadow duration-300 ease-in-out;
+	&:focus,
+	&:focus-within {
+		@apply ring-2 ring-primary/40 outline-none;
+	}
+}
+@utility btn-outline {
+	background-color: transparent;
+	color: var(--color-btn-outline-text);
+	border-color: var(--color-btn-outline-border);
+	&:hover {
+		background-color: var(--color-btn-outline-border);
+		color: var(--color-btn-outline-hover-text);
+		border-color: var(--color-btn-outline-border);
+	}
+}
+@utility badge-outline {
+	background-color: transparent;
+	color: var(--color-btn-outline-text);
+	border-color: var(--color-btn-outline-border);
+}
+@utility footer {
+	@apply border-t border-base-300;
+}
+@utility unimob-logo {
+	@apply flex h-10 w-10 items-center justify-center rounded-lg bg-primary text-xl font-bold text-primary-content;
+}
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+* {
+	scrollbar-width: thin;
+	scrollbar-color: hsl(0 0% 50% / 0.15) transparent;
+}
+*::-webkit-scrollbar {
+	width: 5px;
+	height: 5px;
+}
+*::-webkit-scrollbar-track {
+	background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+	background: hsl(0 0% 50% / 0.15);
+	border-radius: 9999px;
+}
+*::-webkit-scrollbar-thumb:hover {
+	background: hsl(0 0% 50% / 0.3);
+}
